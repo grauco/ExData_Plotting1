@@ -15,4 +15,8 @@ Data <- plotData[plotData$Date %in% c("1/2/2007","2/2/2007"),]
 SetTime <-strptime(paste(Data$Date, Data$Time, sep=" "),"%d/%m/%Y %H:%M:%S")
 Data <- cbind(SetTime, Data)
 
+png(filename = "Plot2.png", bg = "white", width = 480, height = 480)
+
 plot(Data$SetTime, Data$Global_active_power, type="l", col="black", xlab="", ylab="Global Active Power (kilowatts)")
+
+dev.off()
